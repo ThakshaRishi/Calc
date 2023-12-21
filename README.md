@@ -26,110 +26,115 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 ```
-<html>
-    <head>
-        <title>Calculator</title>
-        <style>
-            *{
-                font-family:'Times New Roman', Times, serif;
-            }
-            .box{
-                width: 400px;
-                height: 500px;
-                background-color:blanchedalmond;
-                border-radius: 15px;
-                border-color: black;
-                border-style:double;
-                box-shadow:5px 5px 2px grey;
-                
-            }
-            .mainbox{
-                margin-top: 40px;
-                width: 350px;
-                height:60px;
-                border-radius: 5px;
-                background-color:white;
-                color:gray;
-                font-size: 40px;
-                border-style:ridge;
-                border-width: 5px;
-            }
-            table{
-                text-align: center;
-                margin:20px;
-            }
-            .button{
-                width: 60px;
-                height:60px;
-                background-color:transparent;
-                border-radius: 5px;
-                box-shadow: 5px 5px 2px blue;
-                font-size: larger;
-            }
-            h1{
-                margin-top: 50px;
-                color:darkblue;
-                font-size: 50px;
-            }
-            footer{
-                background-color: darkblue;
-                color: yellow;
-                bottom: 0;
-                width: 100%;
-                height:21px;
-                margin-top: 50px;
-                
-                
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #calculator-container {
+            background-color:palegreen;
+            text-align: center;
+            border: 1px solid #12121200;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 85%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        button {
+            width: 50px;
+            height: 48px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator-container">
+        <h2><font color= "gray"></fontcolor>Thaksha Rishi</h2>
+        <h3>23013212</h3>
+        <h2>CALCULATOR</h2>
+
+        <input type="text" id="display" disabled>
+
+        <br>
+	<button onclick="appendToDisplay('(')">(</button>
+	<button onclick="appendToDisplay(')')">)</button>
+	<button onclick="appendToDisplay('.')">.</button>
+    <button onclick="apprndToDisplay('+')">+</button>
+	
             
-        </style>
-    </head>
-    <body style="background-color:palegreen;">
-        <center>
-        <h1>CALCULATOR</h1>
-        <div class="box">
-            <form name="f">
-                <input class="mainbox" id="mb" name="m">
-                <table cellspacing="20">
-                    <tr>
-                        <td><input type="button" value="1" class="button" onclick="f.m.value+='1'"></td>
-                        <td><input type="button" value="2" class="button" onclick="f.m.value+='2'"></td>
-                        <td><input type="button" value="3" class="button" onclick="f.m.value+='3'""></td>
-                        <td><input type="button" value="+" class="button" onclick="f.m.value+='+'"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="4" class="button" onclick="f.m.value+='4'"></td>
-                        <td><input type="button" value="5" class="button" onclick="f.m.value+='5'"></td>
-                        <td><input type="button" value="6" class="button" onclick="f.m.value+='6'"></td>
-                        <td><input type="button" value="-" class="button" onclick="f.m.value+='-'"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="7" class="button" onclick="f.m.value+='7'"></td>
-                        <td><input type="button" value="8" class="button" onclick="f.m.value+='8'"></td>
-                        <td><input type="button" value="9" class="button" onclick="f.m.value+='9'"></td>
-                        <td><input type="button" value="*" class="button" onclick="f.m.value+='*'"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="AC" class="button" onclick="f.m.value=''"></td>
-                        <td><input type="button" value="0" class="button" onclick="f.m.value+='0'"></td>
-                        <td><input type="button" value="=" class="button" onclick="f.m.value=eval(f.m.value)"></td>
-                        <td><input type="button" value="/" class="button" onclick="f.m.value+='/'"></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <footer>
-            <p>Designed by Thaksha Rishi (23013212)</p>
-        </footer>
-        </center>
+ 	<br>
+
+       
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')">-</button>
+	
         
-    </body>
+
+        <br>
+
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        
+
+        <br>
+	
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('/')">/</button>
+
+        
+	<br>
+    <button onclick="calculate()">=</button>
+    <button onclick="appendToDisplay('0')">0</button>
+	
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="appendToDisplay('%')">%</button>
+    </div>
+
+    <script>
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
 </html>
 ```
-
 ## OUTPUT:
-![Alt text](<Screenshot 2023-12-21 190627.png>)
-![Alt text](<Screenshot 2023-12-21 190642.png>)
+![Alt text](<Screenshot 2023-12-21 221844.png>)
+![Alt text](<Screenshot 2023-12-21 221855.png>)
 
 ## RESULT:
 The program for designing a standard calculator using HTML and CSS is executed successfully.
